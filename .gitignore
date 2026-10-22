@@ -1,0 +1,42 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+coverage/
+**/GeneratedPluginRegistrant.java
+
+# Machine configuration, credentials and private evidence
+**/local.properties
+**/key.properties
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+google-services.json
+evidence/
+captures/
+*.apk
+*.aab
+*.log
+*.hprof
+
+# IDE / OS / Gradle
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+**/.gradle/
+**/.cxx/
+**/.kotlin/
+**/ephemeral/
+
+# Keep pubspec.lock and the Gradle wrapper: this is an application.

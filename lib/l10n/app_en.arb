@@ -1,0 +1,158 @@
+{
+  "@@locale": "en",
+  "app_title": "MD Free People",
+  "tagline": "Record. Verify. Deliver.",
+  "card1_title": "Capture only in the app",
+  "card1_desc": "Gallery import is disabled. Record directly in the app to create a signed file fingerprint.",
+  "card2_title": "What the app does not do",
+  "card2_desc": "Does not assess events, verify personal identity, or validate circumstances.",
+  "card3_title": "Signed on device, anchored on-chain",
+  "card3_desc": "Android stores the private key in Keystore. Hardware protection depends on the device; attestation is not confirmed.",
+  "btn_continue": "Continue",
+  "disclaimer": "Confirms the file has not been changed since it was recorded. Does not assess what the recording shows.",
+  "geo_note": "Location is as reported by the device.",
+  "recorded_by": "Recorded no later than: {time}",
+  "@recorded_by": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "verify_ok": "The file matches the recorded one. Unchanged since {time}.",
+  "@verify_ok": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "verify_fail": "The file differs from the recorded one.",
+  "testnet_note": "(test network)",
+  "nav_capture": "Capture",
+  "nav_records": "My Records",
+  "nav_verify": "Verify",
+  "nav_settings": "Settings",
+  "mode_photo": "Photo",
+  "mode_video": "Video",
+  "mode_audio": "Audio",
+  "capture_footer_note": "Captured in app. Gallery upload is disabled.",
+  "no_connection_note": "offline: saving locally",
+  "status_on_device": "On device",
+  "status_queued": "Sent",
+  "status_anchored": "Confirmed",
+  "status_simulated": "Test record",
+  "file_upload_policy": "File Upload",
+  "file_upload_manual": "Manual",
+  "file_upload_wifi": "Wi-Fi Only",
+  "file_upload_desc": "Hash digest is always sent, media file goes to independent vault only if permitted.",
+  "record_detail_title": "Record Details",
+  "device_attestation_title": "Device",
+  "attestation_not_verified": "attestation unconfirmed",
+  "btn_share_cert": "Share Certificate (PDF)",
+  "btn_share_receipt": "Share Receipt (.mdfp.json)",
+  "btn_send_file_vault": "Send file to independent vault",
+  "btn_select_file": "Select File",
+  "btn_scan_qr": "Scan QR",
+  "tech_info_title": "Show Technical Information",
+  "settings_language": "App Language",
+  "btn_purge_data": "Purge Local Data",
+  "purge_confirm_desc": "This permanently deletes local files, including any not yet uploaded. Server copies are not deleted. Solana Devnet is a test network and records may be reset.",
+  "app_version": "App Version",
+  "perm_camera": "Camera: to capture evidence within the app.",
+  "perm_mic": "Microphone: for video and audio recording of events.",
+  "perm_location": "Location: records device coordinates (optional).",
+  "file_unchanged_header": "FILE UNCHANGED",
+  "finish_recording": "Finish recording first.",
+  "settings_error": "Could not save settings. Please try again.",
+  "storage_error": "Could not read saved records. Please try again.",
+  "camera_permission": "Allow camera access in Android settings.",
+  "microphone_permission": "Allow microphone access in Android settings.",
+  "camera_unavailable": "Camera is unavailable. Try reconnecting.",
+  "audio_not_saved": "Could not save the audio recording.",
+  "capture_error": "Could not record or save the file. Check permissions and free space, then retry.",
+  "device_registration_required": "An internet connection is required for initial device registration. Please retry.",
+  "capture_saved": "Recording saved and signed. See My Records for upload status.",
+  "capture_network_note": "Solana Devnet • GPS included when available",
+  "connect_camera": "Connect device and camera",
+  "start_capture": "Capture / start recording",
+  "stop_capture": "Stop recording",
+  "refresh": "Refresh",
+  "records_empty": "No recordings yet",
+  "status_failed": "Waiting to retry",
+  "status_unknown": "Unknown status",
+  "vault_pending": "Waiting to upload",
+  "vault_uploaded": "Uploaded",
+  "status_label": "Status",
+  "bytes": "{count} bytes",
+  "@bytes": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "file_label": "File",
+  "signature_label": "Signature",
+  "size_label": "Size",
+  "gps_missing": "GPS: not available",
+  "gps_coordinates": "GPS: {lat}, {lon} ±{accuracy} m",
+  "@gps_coordinates": {
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lon": {
+        "type": "String"
+      },
+      "accuracy": {
+        "type": "String"
+      }
+    }
+  },
+  "unknown": "Unknown",
+  "block_time": "Block time",
+  "public_digest": "Public record digest (for inclusion verification):",
+  "copy_digest": "Copy digest",
+  "copy_success": "Copied to clipboard.",
+  "copy_error": "Could not copy to clipboard.",
+  "uploading": "Please wait…",
+  "upload_file": "Upload file to Vault",
+  "copy_receipt": "Copy JSON receipt",
+  "share_original": "Share original file",
+  "record_not_sent": "Wait until the record is registered on the server.",
+  "receipt_not_ready": "Receipt is not ready. Retry after blockchain confirmation.",
+  "receipt_copied": "Receipt copied. Paste it at verify.digitaltrust.living together with the file. It contains recording metadata.",
+  "receipt_error": "Could not retrieve the receipt. Check your connection and retry.",
+  "share_error": "Could not share the file. Check that the original is still on this device.",
+  "upload_success": "File uploaded to Vault.",
+  "upload_error": "Vault did not accept the file. Check your connection and retry.",
+  "devnet_disclaimer": "Solana Devnet is a test network. Signatures and hashes do not prove the truth of the content.",
+  "verify_title": "Integrity check",
+  "verify_help": "Select a saved record to check its SHA-256 hash.",
+  "verify_empty": "No local files to verify.",
+  "verify_local_ok": "SHA-256, file size and record digest match. This is a local integrity check; the device signature and blockchain transaction are not checked here.",
+  "verify_local_fail": "File or record changed: integrity check failed.",
+  "verify_error": "Could not verify the file. Check that the original is still on this device.",
+  "file_upload_any": "Wi-Fi and mobile data (4G/5G)",
+  "upload_any_desc": "Automatically upload files on any connection. Uses your mobile data allowance.",
+  "upload_wifi_desc": "Automatically upload media only on an unmetered connection (usually Wi-Fi).",
+  "upload_manual_desc": "Upload media only when you press the button in record details.",
+  "security_section": "Security and local data",
+  "delete_device": "Delete from device",
+  "about": "About the app",
+  "organization": "NGO Center for Digital Trust",
+  "protocol": "Protocol",
+  "key_protection": "Key protection",
+  "keystore_unverified": "Android Keystore (attestation unconfirmed)",
+  "software_test": "Software key (test mode)",
+  "server_label": "Registration server",
+  "network_label": "Blockchain network",
+  "development": "Development",
+  "purge_title": "Delete all local data?",
+  "cancel": "Cancel",
+  "delete_all": "Delete all",
+  "purge_error": "Could not delete all local data. Please try again.",
+  "purge_success": "Local files deleted from this device.",
+  "developed_by": "Developed by"
+}

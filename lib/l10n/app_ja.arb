@@ -1,0 +1,158 @@
+{
+  "@@locale": "ja",
+  "app_title": "MD Free People",
+  "tagline": "記録。検証。届ける。",
+  "card1_title": "アプリ内のみで撮影",
+  "card1_desc": "ギャラリーからの読み込みは無効です。アプリ内で記録し、署名付きのファイル指紋を作成します。",
+  "card2_title": "アプリが証明しないこと",
+  "card2_desc": "出来事の内容、個人の身元、状況の妥当性は評価・証明しません。",
+  "card3_title": "端末で署名、ブロックチェーンに刻印",
+  "card3_desc": "Androidは秘密鍵をKeystoreに保存します。ハードウェア保護は端末によって異なり、認証は未確認です。",
+  "btn_continue": "続ける",
+  "disclaimer": "記録後にファイルが変更されていないことを確認します。出来事の内容は評価しません。",
+  "geo_note": "位置情報は端末が報告した値です。",
+  "recorded_by": "{time} までに記録",
+  "@recorded_by": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "verify_ok": "ファイルは記録と一致しています。{time} から変更されていません。",
+  "@verify_ok": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "verify_fail": "ファイルは記録と異なります。",
+  "testnet_note": "（テストネット）",
+  "nav_capture": "撮影",
+  "nav_records": "マイ記録",
+  "nav_verify": "検証",
+  "nav_settings": "設定",
+  "mode_photo": "写真",
+  "mode_video": "動画",
+  "mode_audio": "音声",
+  "capture_footer_note": "アプリ内で撮影。ギャラリーからの選択は無効です。",
+  "no_connection_note": "オフライン：端末に保存中",
+  "status_on_device": "端末に保存",
+  "status_queued": "送信完了",
+  "status_anchored": "確定済み",
+  "status_simulated": "テスト記録",
+  "file_upload_policy": "ファイル送信設定",
+  "file_upload_manual": "手動送信",
+  "file_upload_wifi": "Wi-Fi時のみ",
+  "file_upload_desc": "ハッシュは常に送信されますが、ファイル自体は許可した場合のみ独立サーバーに送信されます。",
+  "record_detail_title": "記録の詳細",
+  "device_attestation_title": "端末情報",
+  "attestation_not_verified": "アテスト未確認",
+  "btn_share_cert": "証明書を共有 (PDF)",
+  "btn_share_receipt": "領収書を共有 (.mdfp.json)",
+  "btn_send_file_vault": "独立保管サーバーにファイルを送信",
+  "btn_select_file": "ファイルを選択",
+  "btn_scan_qr": "QRコードをスキャン",
+  "tech_info_title": "技術詳細を表示",
+  "settings_language": "言語設定",
+  "btn_purge_data": "端末内のデータを完全削除",
+  "purge_confirm_desc": "未送信分も含め端末内のファイルを完全に削除します。サーバーのコピーは削除しません。Solana Devnetはテストネットであり、記録がリセットされる場合があります。",
+  "app_version": "アプリバージョン",
+  "perm_camera": "カメラ：アプリ内で証拠を撮影するために使用します。",
+  "perm_mic": "マイク：出来事の動画および音声記録に使用します。",
+  "perm_location": "位置情報：端末の座標を記録します（拒否可能）。",
+  "file_unchanged_header": "ファイルは変更されていません",
+  "finish_recording": "先に録画・録音を終了してください。",
+  "settings_error": "設定を保存できませんでした。もう一度お試しください。",
+  "storage_error": "保存した記録を読み込めませんでした。もう一度お試しください。",
+  "camera_permission": "Androidの設定でカメラへのアクセスを許可してください。",
+  "microphone_permission": "Androidの設定でマイクへのアクセスを許可してください。",
+  "camera_unavailable": "カメラを利用できません。再接続してください。",
+  "audio_not_saved": "音声を保存できませんでした。",
+  "capture_error": "記録または保存ができませんでした。権限と空き容量を確認して再試行してください。",
+  "device_registration_required": "端末の初回登録にはインターネット接続が必要です。再試行してください。",
+  "capture_saved": "記録を保存して署名しました。送信状況は記録一覧で確認できます。",
+  "capture_network_note": "Solana Devnet • 取得できた場合はGPSを付加",
+  "connect_camera": "端末とカメラを接続",
+  "start_capture": "撮影・録音を開始",
+  "stop_capture": "記録を停止",
+  "refresh": "更新",
+  "records_empty": "記録はまだありません",
+  "status_failed": "再送信待ち",
+  "status_unknown": "状態不明",
+  "vault_pending": "アップロード待ち",
+  "vault_uploaded": "アップロード済み",
+  "status_label": "状態",
+  "bytes": "{count} バイト",
+  "@bytes": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "file_label": "ファイル",
+  "signature_label": "署名",
+  "size_label": "サイズ",
+  "gps_missing": "GPS：未取得",
+  "gps_coordinates": "GPS：{lat}, {lon} ±{accuracy} m",
+  "@gps_coordinates": {
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lon": {
+        "type": "String"
+      },
+      "accuracy": {
+        "type": "String"
+      }
+    }
+  },
+  "unknown": "不明",
+  "block_time": "ブロック時刻",
+  "public_digest": "記録の公開ダイジェスト（包含検証用）：",
+  "copy_digest": "ダイジェストをコピー",
+  "copy_success": "クリップボードにコピーしました。",
+  "copy_error": "クリップボードにコピーできませんでした。",
+  "uploading": "お待ちください…",
+  "upload_file": "ファイルをVaultに送信",
+  "copy_receipt": "JSON受領証をコピー",
+  "share_original": "元のファイルを共有",
+  "record_not_sent": "記録がサーバーに登録されるまでお待ちください。",
+  "receipt_not_ready": "受領証は未作成です。ブロックチェーンでの確認後に再試行してください。",
+  "receipt_copied": "受領証をコピーしました。ファイルとともにverify.digitaltrust.livingで使用してください。記録のメタデータが含まれています。",
+  "receipt_error": "受領証を取得できませんでした。接続を確認して再試行してください。",
+  "share_error": "ファイルを共有できませんでした。元のファイルが端末に残っているか確認してください。",
+  "upload_success": "ファイルをVaultに送信しました。",
+  "upload_error": "Vaultへの送信に失敗しました。接続を確認して再試行してください。",
+  "devnet_disclaimer": "Solana Devnetはテストネットです。署名やハッシュは内容の真実性を証明しません。",
+  "verify_title": "整合性の確認",
+  "verify_help": "保存した記録を選択してSHA-256ハッシュを確認してください。",
+  "verify_empty": "確認するローカルファイルがありません。",
+  "verify_local_ok": "SHA-256、サイズ、記録のダイジェストが一致します。ローカルでの整合性確認です。端末の署名やブロックチェーンの取引はここでは検証しません。",
+  "verify_local_fail": "ファイルまたは記録が変更されています。整合性を確認できませんでした。",
+  "verify_error": "確認できませんでした。元のファイルが端末に残っているか確認してください。",
+  "file_upload_any": "Wi-Fiとモバイル通信（4G/5G）",
+  "upload_any_desc": "接続があれば自動送信します。モバイルデータ通信量を消費します。",
+  "upload_wifi_desc": "従量制ではない接続（通常はWi-Fi）のみで自動送信します。",
+  "upload_manual_desc": "記録の詳細画面でボタンを押したときのみ送信します。",
+  "security_section": "セキュリティと端末内のデータ",
+  "delete_device": "端末から削除",
+  "about": "アプリについて",
+  "organization": "NGO Center for Digital Trust",
+  "protocol": "プロトコル",
+  "key_protection": "鍵の保護",
+  "keystore_unverified": "Android Keystore（認証未確認）",
+  "software_test": "ソフトウェア鍵（テストモード）",
+  "server_label": "登録サーバー",
+  "network_label": "ブロックチェーンネットワーク",
+  "development": "開発",
+  "purge_title": "端末内のデータをすべて削除しますか？",
+  "cancel": "キャンセル",
+  "delete_all": "すべて削除",
+  "purge_error": "すべてのローカルデータを削除できませんでした。再試行してください。",
+  "purge_success": "端末内のファイルを削除しました。",
+  "developed_by": "開発元"
+}
