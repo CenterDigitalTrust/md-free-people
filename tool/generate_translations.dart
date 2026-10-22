@@ -5,7 +5,7 @@ void main() {
   // Generate the runtime map from ARB, never maintain a second manual catalogue.
   try {
     final catalogs = <String, Map<String, dynamic>>{};
-    for (final code in ['en', 'ru', 'uk', 'es', 'ja']) {
+    for (final code in ['uk', 'en', 'ru', 'es', 'ja']) {
       final data = jsonDecode(File('lib/l10n/app_$code.arb').readAsStringSync())
           as Map<String, dynamic>;
       catalogs[code] = Map.fromEntries(
