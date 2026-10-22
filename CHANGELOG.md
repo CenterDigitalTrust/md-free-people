@@ -2,6 +2,8 @@
 
 ## Repository preparation
 
+- Applied the owner-selected MIT License to original project code; preserved third-party notices.
+
 - Added Ukrainian/English introductions, build, architecture and translation guides.
 - Added GitHub checks and issue/pull-request templates.
 - Made Java SDK selection portable; added optional private release signing.

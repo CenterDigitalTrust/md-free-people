@@ -52,6 +52,6 @@ flutter pub get && flutter analyze --no-pub && flutter test --no-pub
 - [Безпека](SECURITY.md)
 - [Публікація репозиторію](docs/GITHUB.ru.md)
 - [Результати перевірки цієї копії](docs/VALIDATION.md)
-- [Статус ліцензування](docs/LICENSING.md) · [Сторонні компоненти](THIRD_PARTY_NOTICES.md)
+- [Ліцензія MIT](LICENSE) · [Сторонні компоненти](THIRD_PARTY_NOTICES.md)
 
-Ліцензію власного коду ще не визначено власником. Цей репозиторій не оголошує весь застосунок MIT або Apache-2.0.
+Власний код проєкту поширюється за [ліцензією MIT](LICENSE). Авторські права: © 2026 NGO Center for Digital Trust. Ліцензії сторонніх компонентів збережено окремо.

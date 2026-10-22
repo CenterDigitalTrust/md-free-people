@@ -28,4 +28,4 @@ Initial registration needs network access. Android may defer uploads. Hashes est
 
 The baseline passed static analysis and 27 tests; no physical SIM-based 4G test was performed. The supplied workflow has not run on GitHub yet.
 
-See [architecture](ARCHITECTURE.md), [contribution guide](../CONTRIBUTING.md), [security](../SECURITY.md), and [licensing status](LICENSING.md). The owner has not selected a license for original project code.
+See [architecture](ARCHITECTURE.md), [contribution guide](../CONTRIBUTING.md), [security](../SECURITY.md), and [licensing details](LICENSING.md). Original project code is licensed under the [MIT License](../LICENSE). Copyright (c) 2026 NGO Center for Digital Trust; third-party notices are preserved.

@@ -1,6 +1,6 @@
 # Contributing
 
-Read [build instructions](docs/BUILD.ru.md) and [architecture](docs/ARCHITECTURE.md). Licensing for original code awaits an owner decision; coordinate contributions with the maintainer.
+Read [build instructions](docs/BUILD.ru.md) and [architecture](docs/ARCHITECTURE.md). Original project code uses the [MIT License](LICENSE); preserve license notices when contributing.
 
 1. Create a focused branch and describe the user-visible problem.
 2. Preserve the capture → canonical record → signing → queue pipeline.
