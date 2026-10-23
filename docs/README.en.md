@@ -82,4 +82,11 @@ Initial registration needs network access. Android may defer uploads. Hashes est
 
 The baseline passed static analysis and 27 tests; no physical SIM-based 4G test was performed.
 
-See [architecture](ARCHITECTURE.md), [contribution guide](../CONTRIBUTING.md), [security](../SECURITY.md), and [licensing details](LICENSING.md). Original project code is licensed under the [MIT License](../LICENSE). Copyright (c) 2026 NGO Center for Digital Trust; third-party notices are preserved.
+## Independent Assessment
+
+1. **Deterministic Cryptographic Protocol (`MDFP1`)**: Canonical JSON (`MdfpRecord`) uses lexicographically sorted keys, zero whitespace, and integer micro-degrees (`lat_e6`, `lon_e6`, `acc_m`) to eliminate cross-platform floating-point drift. Domain separation is enforced both at signing (`"MDFP1\n"`) and at Merkle leaf construction (`0x00` prefix per RFC-6962). `StreamingHasher` hashes media streams without loading large videos into RAM.
+2. **Split-Channel Offline-First Delivery (`SyncQueueManager`)**: Lightweight canonical metadata and signatures are dispatched over any available connection (`Channel A`) to secure an immediate timestamp and queue blockchain anchoring, while heavy media files (`Channel B`) are uploaded independently to Vault under user-controlled network policies (`Wi-Fi + 4G/5G`, `Wi-Fi Only`, or `Manual`).
+3. **Defense-in-Depth UX & Keystore Isolation**: Gallery import is disabled by design; private keys (`ecdsa-p256-sha256`) stay inside Android Keystore; public QR codes expose only `record_digest` and never leak the private `record_token`.
+4. **Transparent Trust Boundaries**: Both the UI and documentation clearly state what cryptographic proofs establish (byte integrity and device key possession at capture time) and what they do not replace (independent verification of physical events).
+
+See [architecture](ARCHITECTURE.md), [independent assessment (RU)](ASSESSMENT.ru.md), [contribution guide](../CONTRIBUTING.md), [security](../SECURITY.md), and [licensing details](LICENSING.md). Original project code is licensed under the [MIT License](../LICENSE). Copyright (c) 2026 NGO Center for Digital Trust; third-party notices are preserved.
