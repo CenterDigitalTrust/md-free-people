@@ -3,7 +3,7 @@
 This repository contains an Android Flutter client (`org.mdsystem.mdfp`), not the Azure backend or Solana anchor service.
 
 <p align="center">
-  <img src="images/mdfp-architecture-flow.svg" width="100%" alt="MDFP1 Public Architecture & Cryptographic Lifecycle">
+  <img src="images/mdfp-architecture-flow-en.svg" width="100%" alt="MDFP1 Public Architecture & Cryptographic Lifecycle">
 </p>
 
 ## Repository Layout

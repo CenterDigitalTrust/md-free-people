@@ -27,7 +27,7 @@ Version **1.0.3+4** · Android **8.0+** (target API 35) · package **org.mdsyste
 ## Public Architecture & MDFP1 Protocol Diagram
 
 <p align="center">
-  <img src="images/mdfp-architecture-flow.svg" width="100%" alt="MDFP1 Public Architecture & Cryptographic Lifecycle">
+  <img src="images/mdfp-architecture-flow-en.svg" width="100%" alt="MDFP1 Public Architecture & Cryptographic Lifecycle">
 </p>
 
 ```mermaid
