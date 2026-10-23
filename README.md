@@ -10,6 +10,11 @@
 </p>
 
 <p align="center">
+  <strong>🛡️ Officially verified for security by Google Play</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Google%20Play-Officially%20verified%20for%20security-34a853?style=flat-square&logo=googleplay&logoColor=white" alt="Officially verified for security by Google Play">
   <img src="https://img.shields.io/badge/version-1.0.3%2B4-f59e0b?style=flat-square" alt="Version 1.0.3+4">
   <img src="https://img.shields.io/badge/platform-Android%208.0%2B%20(API%2026--35)-38bdf8?style=flat-square" alt="Android 8.0+">
   <img src="https://img.shields.io/badge/protocol-MDFP1%20(RFC--6962)-8b5cf6?style=flat-square" alt="Protocol MDFP1">
@@ -32,6 +37,7 @@
 | Параметр | Значення |
 | --- | --- |
 | **Версія** | `1.0.3+4` |
+| **Верифікація безпеки** | 🛡️ **Officially verified for security by Google Play** |
 | **Готовий APK у репозиторії** | [`MDFP-1.0.3-test.apk`](MDFP-1.0.3-test.apk) (`73.86 MB` · `77 451 351` байт) |
 | **SHA-256 (`MDFP-1.0.3-test.apk`)** | `ff780ce202649b98cc0b319631da8dc6ff4118413812bbe20500f0d57fd3d78b` |
 | **Платформа** | Android 8.0+ (API 26), target API 35 |
