@@ -1,0 +1,287 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F17"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0D131F"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="uaRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0057B7"/>
+      <stop offset="50%" stop-color="#0088FF"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <marker id="arrowGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FBBF24"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38BDF8"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#A78BFA"/>
+    </marker>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Canvas -->
+  <rect width="1200" height="720" rx="18" fill="url(#bgGrad)" stroke="#1F2937" stroke-width="2"/>
+  <rect x="0" y="0" width="1200" height="5" rx="2" fill="url(#uaRibbon)"/>
+
+  <!-- Header Banner -->
+  <g transform="translate(36, 26)">
+    <rect x="0" y="0" width="1128" height="74" rx="12" fill="#161F30" stroke="#26334D" stroke-width="1.5"/>
+    <!-- Shield / Brand Icon -->
+    <circle cx="38" cy="37" r="22" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
+    <path d="M38 21 L50 26 L50 36 C50 44 44.5 50 38 53 C31.5 50 26 44 26 36 L26 26 Z" fill="#0284C7" opacity="0.3" stroke="#38BDF8" stroke-width="1.8"/>
+    <circle cx="38" cy="36" r="5" fill="#FBBF24"/>
+
+    <text x="74" y="33" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="20" font-weight="800" fill="#F9FAFB" letter-spacing="0.4">
+      MD FREE PEOPLE (MD ВІЛЬНІ ЛЮДИ) · АРХІТЕКТУРА ТА ПРОТОКОЛ MDFP1
+    </text>
+    <text x="74" y="55" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" fill="#9CA3AF">
+      NGO Center for Digital Trust (ГО «Центр цифрової довіри») · Public Client Architecture &amp; Cryptographic Evidence Flow
+    </text>
+
+    <!-- Protocol Pill Badges -->
+    <rect x="850" y="14" width="126" height="22" rx="6" fill="#1E293B" stroke="#F59E0B" stroke-width="1"/>
+    <text x="913" y="29" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#FBBF24">MDFP1 · RFC-6962</text>
+
+    <rect x="984" y="14" width="128" height="22" rx="6" fill="#1E293B" stroke="#38BDF8" stroke-width="1"/>
+    <text x="1048" y="29" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#38BDF8">ECDSA P-256</text>
+
+    <rect x="850" y="42" width="262" height="22" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+    <text x="981" y="57" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#6EE7B7">Android Keystore · Solana Devnet</text>
+  </g>
+
+  <!-- ==================== STAGE 1: IN-APP CAPTURE (TOP-LEFT) ==================== -->
+  <g transform="translate(36, 122)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="530" height="236" rx="14" fill="#141C2B" stroke="#F59E0B" stroke-width="1.8"/>
+    <rect x="0" y="0" width="530" height="38" rx="14" fill="url(#goldGrad)"/>
+    <rect x="0" y="24" width="530" height="14" fill="url(#goldGrad)"/>
+    <text x="18" y="25" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#0B0F17">
+      1. ФІКСАЦІЯ ДОКАЗУ В ЗАСТОСУНКУ · IN-APP CAPTURE ONLY
+    </text>
+    <text x="512" y="25" text-anchor="end" font-family="monospace" font-size="12" font-weight="700" fill="#0B0F17">
+      CaptureService
+    </text>
+
+    <!-- Sub-items -->
+    <g transform="translate(18, 52)">
+      <rect x="0" y="0" width="494" height="44" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#FBBF24">
+        Камера та мікрофон у реальному часі (Імпорт із галереї вимкнено)
+      </text>
+      <text x="14" y="36" font-family="monospace" font-size="11.5" fill="#CBD5E1">
+        Photo (image/jpeg)  |  Video (video/mp4)  |  Audio (audio/m4a)
+      </text>
+    </g>
+
+    <g transform="translate(18, 106)">
+      <rect x="0" y="0" width="494" height="50" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#F9FAFB">
+        Потокове хешування байтів (StreamingHasher) та метадані GPS
+      </text>
+      <text x="14" y="38" font-family="monospace" font-size="11.5" fill="#93C5FD">
+        file_sha256 = SHA-256(media_stream)   ·   file_size = byteLength
+      </text>
+    </g>
+
+    <g transform="translate(18, 166)">
+      <rect x="0" y="0" width="494" height="54" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#E2E8F0">
+        Ізольоване сховище додатка + цілочисельна геометрія (за наявності дозволу):
+      </text>
+      <text x="14" y="39" font-family="monospace" font-size="11.5" fill="#A7F3D0">
+        /app_flutter/mdfp_evidence/  ·  geo: {lat_e6, lon_e6, acc_m} або omitted
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -> 2 (Top Left to Top Right) -->
+  <g>
+    <line x1="568" y1="240" x2="626" y2="240" stroke="#FBBF24" stroke-width="3" stroke-dasharray="5,3" marker-end="url(#arrowGold)"/>
+    <rect x="572" y="206" width="52" height="22" rx="5" fill="#1E293B" stroke="#FBBF24" stroke-width="1"/>
+    <text x="598" y="221" text-anchor="middle" font-family="monospace" font-size="10.5" font-weight="700" fill="#FBBF24">SHA-256</text>
+  </g>
+
+  <!-- ==================== STAGE 2: MDFP1 PROTOCOL & KEYSTORE SIGNING (TOP-RIGHT) ==================== -->
+  <g transform="translate(634, 122)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="530" height="236" rx="14" fill="#141C2B" stroke="#38BDF8" stroke-width="1.8"/>
+    <rect x="0" y="0" width="530" height="38" rx="14" fill="url(#blueGrad)"/>
+    <rect x="0" y="24" width="530" height="14" fill="url(#blueGrad)"/>
+    <text x="18" y="25" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#0B0F17">
+      2. КАНОНІЧНИЙ ЗАПИС MDFP1 ТА ПІДПИС KEYSTORE
+    </text>
+    <text x="512" y="25" text-anchor="end" font-family="monospace" font-size="12" font-weight="700" fill="#0B0F17">
+      MdfpRecord
+    </text>
+
+    <!-- Canonical JSON -->
+    <g transform="translate(18, 52)">
+      <rect x="0" y="0" width="494" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="18" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#38BDF8">
+        Детермінований канонічний JSON (алфавітний порядок ключів, без пробілів)
+      </text>
+      <text x="14" y="38" font-family="monospace" font-size="11" fill="#E2E8F0">
+        {"app_ver","client_time_ms","device_id","file_sha256","file_size","geo"?,"media_type","nonce","v":1}
+      </text>
+    </g>
+
+    <!-- Digest & Hardware Sign -->
+    <g transform="translate(18, 112)">
+      <rect x="0" y="0" width="494" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#F9FAFB">
+        Апаратний підпис в Android Keystore (приватний ключ не покидає пристрій)
+      </text>
+      <text x="14" y="39" font-family="monospace" font-size="11.5" fill="#FDE68A">
+        sig = Sign_ECDSA_P256("MDFP1\n" || canonical_json)   ·   digest = SHA-256(json)
+      </text>
+    </g>
+
+    <!-- Merkle Leaf -->
+    <g transform="translate(18, 172)">
+      <rect x="0" y="0" width="494" height="48" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+      <text x="14" y="18" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#E2E8F0">
+        Листок дерева Меркла з розділенням доменів (RFC-6962 Domain Separation):
+      </text>
+      <text x="14" y="36" font-family="monospace" font-size="11.5" fill="#6EE7B7">
+        leaf_hash = SHA-256( 0x00 || record_digest_bytes || signature_bytes )
+      </text>
+    </g>
+  </g>
+
+  <!-- Connector 2 -> 3 (Diagonal / Stepped path from Stage 2 bottom to Stage 3 top) -->
+  <path d="M 899 358 L 899 382 L 301 382 L 301 404" fill="none" stroke="#38BDF8" stroke-width="2.8" marker-end="url(#arrowBlue)"/>
+  <rect x="495" y="370" width="210" height="22" rx="6" fill="#161F30" stroke="#38BDF8" stroke-width="1.2"/>
+  <text x="600" y="385" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#38BDF8">
+    enqueueEvidence() · Offline-First
+  </text>
+
+  <!-- ==================== STAGE 3: SPLIT-CHANNEL SYNC & QUEUE (BOTTOM-LEFT) ==================== -->
+  <g transform="translate(36, 408)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="530" height="236" rx="14" fill="#141C2B" stroke="#8B5CF6" stroke-width="1.8"/>
+    <rect x="0" y="0" width="530" height="38" rx="14" fill="url(#purpleGrad)"/>
+    <rect x="0" y="24" width="530" height="14" fill="url(#purpleGrad)"/>
+    <text x="18" y="25" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">
+      3. ОФЛАЙН-ЧЕРГА ТА ДВОКАНАЛЬНА СИНХРОНІЗАЦІЯ
+    </text>
+    <text x="512" y="25" text-anchor="end" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">
+      SyncQueueManager
+    </text>
+
+    <!-- Channel A -->
+    <g transform="translate(18, 50)">
+      <rect x="0" y="0" width="494" height="58" rx="8" fill="#1E293B" stroke="#4C1D95" stroke-width="1.2"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#C4B5FD">
+        Канал А — Метадані та криптографічний підпис (API Aggregator)
+      </text>
+      <text x="14" y="36" font-family="monospace" font-size="11.5" fill="#E2E8F0">
+        POST /v1/devices/challenge &amp; /register  -&gt;  POST /v1/records
+      </text>
+      <text x="14" y="51" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#9CA3AF">
+        Відправляється за будь-якого з’єднання; повертає short_id та приватний record_token
+      </text>
+    </g>
+
+    <!-- Channel B -->
+    <g transform="translate(18, 116)">
+      <rect x="0" y="0" width="494" height="58" rx="8" fill="#1E293B" stroke="#4C1D95" stroke-width="1.2"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#FDE68A">
+        Канал Б — Завантаження медіафайлу до незалежного сховища (Vault)
+      </text>
+      <text x="14" y="36" font-family="monospace" font-size="11.5" fill="#E2E8F0">
+        POST /vault/upload   (multipart: record_id, record_token, media)
+      </text>
+      <text x="14" y="51" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#9CA3AF">
+        Політика: Wi-Fi + 4G/5G (any)  |  Лише Wi-Fi (unmetered)  |  Вручну (manual)
+      </text>
+    </g>
+
+    <!-- Workmanager -->
+    <g transform="translate(18, 182)">
+      <rect x="0" y="0" width="494" height="40" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+      <text x="14" y="24" font-family="monospace" font-size="11.5" fill="#A78BFA">
+        Workmanager (15m periodic) + LocalEvidenceStore (стійкість до авіарежиму)
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -> 4 (Bottom Left to Bottom Right) -->
+  <g>
+    <line x1="568" y1="526" x2="626" y2="526" stroke="#A78BFA" stroke-width="3" stroke-dasharray="5,3" marker-end="url(#arrowPurple)"/>
+    <rect x="570" y="492" width="56" height="22" rx="5" fill="#1E293B" stroke="#A78BFA" stroke-width="1"/>
+    <text x="598" y="507" text-anchor="middle" font-family="monospace" font-size="10.5" font-weight="700" fill="#C4B5FD">HTTPS</text>
+  </g>
+
+  <!-- ==================== STAGE 4: ON-CHAIN ANCHORING & VERIFICATION (BOTTOM-RIGHT) ==================== -->
+  <g transform="translate(634, 408)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="530" height="236" rx="14" fill="#141C2B" stroke="#10B981" stroke-width="1.8"/>
+    <rect x="0" y="0" width="530" height="38" rx="14" fill="url(#greenGrad)"/>
+    <rect x="0" y="24" width="530" height="14" fill="url(#greenGrad)"/>
+    <text x="18" y="25" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#0B0F17">
+      4. БЛОКЧЕЙН-АНКЕРИНГ ТА НЕЗАЛЕЖНА ВЕРИФІКАЦІЯ
+    </text>
+    <text x="512" y="25" text-anchor="end" font-family="monospace" font-size="12" font-weight="700" fill="#0B0F17">
+      Solana + Verifier
+    </text>
+
+    <!-- Blockchain Anchoring -->
+    <g transform="translate(18, 50)">
+      <rect x="0" y="0" width="494" height="54" rx="8" fill="#1E293B" stroke="#065F46" stroke-width="1.2"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#6EE7B7">
+        Фіксація кореня Меркла в мережі Solana (Devnet)
+      </text>
+      <text x="14" y="38" font-family="monospace" font-size="11.5" fill="#E2E8F0">
+        GET /v1/records/{short_id}?token=...  -&gt;  tx_signature &amp; block_time
+      </text>
+    </g>
+
+    <!-- Local Integrity Verification -->
+    <g transform="translate(18, 112)">
+      <rect x="0" y="0" width="494" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#F9FAFB">
+        Локальна перевірка цілісності (EvidenceVerifier) та публічний QR-дайджест
+      </text>
+      <text x="14" y="38" font-family="monospace" font-size="11.5" fill="#93C5FD">
+        Перерахунок SHA-256 + file_size + record_digest  ·  QR = record_digest (без токена)
+      </text>
+    </g>
+
+    <!-- External Receipt Verification -->
+    <g transform="translate(18, 172)">
+      <rect x="0" y="0" width="494" height="48" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+      <text x="14" y="19" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600" fill="#E2E8F0">
+        Зовнішня перевірка квитанції та оригінального файлу:
+      </text>
+      <text x="14" y="36" font-family="monospace" font-size="11.5" fill="#FBBF24">
+        Copy JSON Receipt + Share Original File  -&gt;  https://verify.digitaltrust.living
+      </text>
+    </g>
+  </g>
+
+  <!-- Footer Trust Boundary Strip -->
+  <g transform="translate(36, 660)">
+    <rect x="0" y="0" width="1128" height="40" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+    <text x="564" y="25" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#9CA3AF">
+      Межі довіри: криптографічні хеші та підпис підтверджують цілісність байтів і ключ пристрою, але не замінюють експертизу події. Серверні токени та ключі не публікуються.
+    </text>
+  </g>
+</svg>

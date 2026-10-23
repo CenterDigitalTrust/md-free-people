@@ -1,6 +1,6 @@
 # Размещение на GitHub
 
-Имя: **mdfp-mobile**. Папка подготовлена как самостоятельный Git-репозиторий с веткой `main`; удалённый адрес не задан. Учётная запись и видимость GitHub не выбирались.
+Публичный репозиторий: **[CenterDigitalTrust/md-free-people](https://github.com/CenterDigitalTrust/md-free-people)** (основная ветка `main`).
 
 1. Создайте пустой репозиторий `mdfp-mobile` в нужной учётной записи. Не добавляйте автоматически README, `.gitignore` или лицензию.
 2. Откройте папку в GitHub Desktop через **Add existing repository** либо подключите фактический удалённый адрес через Git.
