@@ -35,7 +35,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sdkmanager 'platforms;android-35' 'build-tools;34.0.0'
+          SDKMANAGER="${ANDROID_HOME:-$ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$SDKMANAGER" ]; then
+            SDKMANAGER="$(command -v sdkmanager)"
+          fi
+          (yes || true) | "$SDKMANAGER" --licenses > /dev/null
+          (yes || true) | "$SDKMANAGER" 'platforms;android-35' 'build-tools;34.0.0'
           flutter --version
           flutter config --no-analytics
           flutter pub get
