@@ -16,6 +16,9 @@ An Android application for capturing photos, video and audio directly on the dev
 
 Version **1.0.3+4** · Android **8.0+** (target API 35) · package **org.mdsystem.mdfp**.
 
+- **Prebuilt Test APK:** [`MDFP-1.0.3-test.apk`](../MDFP-1.0.3-test.apk) (`73.86 MB`, `77,451,351` bytes)
+- **SHA-256:** `ff780ce202649b98cc0b319631da8dc6ff4118413812bbe20500f0d57fd3d78b`
+
 ---
 
 ## Public Architecture & MDFP1 Protocol Diagram

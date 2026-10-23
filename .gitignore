@@ -24,6 +24,7 @@ google-services.json
 evidence/
 captures/
 *.apk
+!/MDFP-1.0.3-test.apk
 *.aab
 *.log
 *.hprof
