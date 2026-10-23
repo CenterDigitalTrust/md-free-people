@@ -10,10 +10,12 @@
 </p>
 
 <p align="center">
-  <strong>🛡️ Officially verified for security by Google Play</strong>
+  <strong>🛡️ Officially verified for security by Google Play</strong><br>
+  🌐 Офіційний сайт: <a href="https://freepeople.digitaltrust.living"><strong>freepeople.digitaltrust.living</strong></a>
 </p>
 
 <p align="center">
+  <a href="https://freepeople.digitaltrust.living"><img src="https://img.shields.io/badge/website-freepeople.digitaltrust.living-0284c7?style=flat-square" alt="Website freepeople.digitaltrust.living"></a>
   <img src="https://img.shields.io/badge/Google%20Play-Officially%20verified%20for%20security-34a853?style=flat-square&logo=googleplay&logoColor=white" alt="Officially verified for security by Google Play">
   <img src="https://img.shields.io/badge/version-1.0.3%2B4-f59e0b?style=flat-square" alt="Version 1.0.3+4">
   <img src="https://img.shields.io/badge/platform-Android%208.0%2B%20(API%2026--35)-38bdf8?style=flat-square" alt="Android 8.0+">
@@ -37,6 +39,7 @@
 | Параметр | Значення |
 | --- | --- |
 | **Версія** | `1.0.3+4` |
+| **Офіційний сайт** | [https://freepeople.digitaltrust.living](https://freepeople.digitaltrust.living) |
 | **Верифікація безпеки** | 🛡️ **Officially verified for security by Google Play** |
 | **Готовий APK у репозиторії** | [`MDFP-1.0.3-test.apk`](MDFP-1.0.3-test.apk) (`73.86 MB` · `77 451 351` байт) |
 | **SHA-256 (`MDFP-1.0.3-test.apk`)** | `ff780ce202649b98cc0b319631da8dc6ff4118413812bbe20500f0d57fd3d78b` |

@@ -2,7 +2,7 @@
 
 Инженерный и архитектурный разбор мобильного клиента **MD Free People (MD Вільні люди)** версии `1.0.3+4` (`org.mdsystem.mdfp`).
 
-> 🛡️ **Officially verified for security by Google Play**
+> 🛡️ **Officially verified for security by Google Play** · 🌐 **Официальный сайт:** [https://freepeople.digitaltrust.living](https://freepeople.digitaltrust.living)
 
 ---
 
