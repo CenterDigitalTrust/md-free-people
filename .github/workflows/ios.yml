@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   ios-simulator-and-ipa:
-    runs-on: macos-14
+    runs-on: macos-15
     timeout-minutes: 60
     env:
       APPLE_TEAM_ID: "5DAJRKF873"
