@@ -42,6 +42,8 @@ jobs:
 
           cp ios/Runner/AppDelegate.swift "$RUNNER_TEMP/AppDelegate.swift"
           flutter create --platforms=ios --org org.mdsystem --project-name mdfp_app .
+          rm -f test/widget_test.dart
+          git checkout -- lib test pubspec.yaml
           cp "$RUNNER_TEMP/AppDelegate.swift" ios/Runner/AppDelegate.swift
 
           # Set exact Bundle ID (org.mdsystem.mdfp), Team ID (5DAJRKF873), and iOS 13.0 minimum deployment target
