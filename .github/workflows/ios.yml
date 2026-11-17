@@ -81,6 +81,7 @@ jobs:
         run: |
           set -euo pipefail
           flutter pub get
+          flutter precache --ios
 
           cat > ios/Podfile << 'EOF'
           platform :ios, '13.0'
