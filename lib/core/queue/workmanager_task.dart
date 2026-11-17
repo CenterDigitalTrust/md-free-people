@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:workmanager/workmanager.dart';
 import 'sync_queue_manager.dart';
@@ -27,22 +28,24 @@ class WorkmanagerService {
         isInDebugMode: false,
       );
 
-      // This worker also permits the optional unmetered-only media policy.
-      await Workmanager().registerPeriodicTask(
-        'mdfp-vault-periodic',
-        'mdfp-vault-wifi',
-        frequency: const Duration(minutes: 15),
-        constraints: Constraints(networkType: NetworkType.unmetered),
-      );
-      // Connected includes cellular; the shared policy controls media uploads.
-      await Workmanager().registerPeriodicTask(
-        'mdfp-sync-periodic',
-        syncQueueTaskName,
-        frequency: const Duration(minutes: 15),
-        constraints: Constraints(
-          networkType: NetworkType.connected,
-        ),
-      );
+      if (Platform.isAndroid) {
+        // This worker also permits the optional unmetered-only media policy.
+        await Workmanager().registerPeriodicTask(
+          'mdfp-vault-periodic',
+          'mdfp-vault-wifi',
+          frequency: const Duration(minutes: 15),
+          constraints: Constraints(networkType: NetworkType.unmetered),
+        );
+        // Connected includes cellular; the shared policy controls media uploads.
+        await Workmanager().registerPeriodicTask(
+          'mdfp-sync-periodic',
+          syncQueueTaskName,
+          frequency: const Duration(minutes: 15),
+          constraints: Constraints(
+            networkType: NetworkType.connected,
+          ),
+        );
+      }
     } catch (_) {}
   }
 

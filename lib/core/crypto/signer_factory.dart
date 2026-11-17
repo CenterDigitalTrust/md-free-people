@@ -13,7 +13,7 @@ class SignerFactory {
   static KeySigner getSigner() {
     if (_instance != null) return _instance!;
 
-    if (!kIsWeb && Platform.isAndroid) {
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
       _instance = AndroidKeystoreSigner();
     } else {
       _instance = SoftwareTestSigner();
