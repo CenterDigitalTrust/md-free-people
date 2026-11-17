@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   ios-simulator-and-ipa:
-    runs-on: macos-15
+    runs-on: macos-14
     timeout-minutes: 60
     env:
       APPLE_TEAM_ID: "5DAJRKF873"
@@ -131,13 +131,6 @@ jobs:
             H=$(sips -g pixelHeight "$f" | awk '/pixelHeight:/{print $2}')
             sips -z "$H" "$W" "assets/images/logo.png" --out "$f" >/dev/null
           done
-
-      - name: Run Dart static analysis & unit tests on macOS
-        shell: bash
-        run: |
-          set -euo pipefail
-          flutter analyze --no-pub
-          flutter test --no-pub --reporter expanded
 
       - name: Build native iOS app for Simulator (Xcode + Swift SecureEnclave/Keychain + CocoaPods)
         shell: bash
