@@ -1,4 +1,4 @@
-name: iOS build & Simulator verification
+name: iOS build, Simulator & TestFlight deployment
 
 on:
   push:
@@ -18,9 +18,11 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 60
     env:
-      APPLE_TEAM_ID: "5DAJRKF873"
+      APPLE_TEAM_ID: "M76828BXT2"
       BUNDLE_ID: "org.mdsystem.mdfp"
       DUNS_NUMBER: "667676387"
+      PROFILE_UUID: "012167f5-464f-4fb1-bc43-9a984ca36c35"
+      PROFILE_NAME: "MD Free People AppStore"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -57,7 +59,7 @@ jobs:
           #include "Generated.xcconfig"
           EOF
 
-          # Set exact Bundle ID (org.mdsystem.mdfp), Team ID (5DAJRKF873), and iOS 13.0 minimum deployment target
+          # Set exact Bundle ID (org.mdsystem.mdfp), Team ID (M76828BXT2), and iOS 13.0 minimum deployment target
           sed -i '' 's/org\.mdsystem\.mdfpApp/org.mdsystem.mdfp/g' ios/Runner.xcodeproj/project.pbxproj
           sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*;/IPHONEOS_DEPLOYMENT_TARGET = 13.0;/g' ios/Runner.xcodeproj/project.pbxproj
 
@@ -76,7 +78,7 @@ jobs:
           /usr/libexec/PlistBuddy -c "Delete :ITSAppUsesNonExemptEncryption" "$PLIST" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$PLIST"
 
-      - name: Configure Podfile (iOS 13.0 + permission_handler macros) & generate AppIcons
+      - name: Configure Podfile (iOS 13.0 + permission_handler macros) & generate opaque AppIcons
         shell: bash
         run: |
           set -euo pipefail
@@ -124,6 +126,7 @@ jobs:
               target.build_configurations.each do |config|
                 config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
                 config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'i386'
+                config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
                 config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
                   '$(inherited)',
                   'PERMISSION_CAMERA=1',
@@ -138,13 +141,14 @@ jobs:
 
           (cd ios && pod install)
 
-          # Generate opaque iOS AppIcons from assets/images/logo.png
+          # Convert logo.png through opaque 24-bit JPEG first so App Store Connect never rejects icons for alpha channel
+          sips -s format jpeg -s formatOptions 100 "assets/images/logo.png" --out "$RUNNER_TEMP/logo_opaque.jpg" >/dev/null
           ICON_DIR="ios/Runner/Assets.xcassets/AppIcon.appiconset"
           for f in "$ICON_DIR"/*.png; do
             [ -e "$f" ] || continue
             W=$(sips -g pixelWidth "$f" | awk '/pixelWidth:/{print $2}')
             H=$(sips -g pixelHeight "$f" | awk '/pixelHeight:/{print $2}')
-            sips -z "$H" "$W" "assets/images/logo.png" --out "$f" >/dev/null
+            sips -s format png -z "$H" "$W" "$RUNNER_TEMP/logo_opaque.jpg" --out "$f" >/dev/null
           done
 
       - name: Build native iOS app for Simulator (Xcode + Swift SecureEnclave/Keychain + CocoaPods)
@@ -160,7 +164,6 @@ jobs:
           set -euo pipefail
           mkdir -p artifacts_out
 
-          # Pick an available iPhone simulator runtime
           UDID=$(xcrun simctl list devices available -j | python3 -c "
           import json, sys
           data = json.load(sys.stdin)['devices']
@@ -180,31 +183,114 @@ jobs:
           xcrun simctl boot "$UDID" || true
           xcrun simctl bootstatus "$UDID" -b
 
-          # Install and grant privacy permissions in Simulator
           xcrun simctl install "$UDID" build/ios/iphonesimulator/Runner.app
           xcrun simctl privacy "$UDID" grant all "$BUNDLE_ID" || true
 
-          # Launch MD Free People on the booted iPhone Simulator
           LAUNCH_OUT=$(xcrun simctl launch "$UDID" "$BUNDLE_ID")
           echo "Launched $BUNDLE_ID -> $LAUNCH_OUT"
 
-          # Wait for Flutter scene & OnboardingScreen to render
           sleep 12
 
-          # Capture live iPhone Simulator screenshot
           xcrun simctl io "$UDID" screenshot artifacts_out/ios-simulator-onboarding.png
           sips -g pixelWidth -g pixelHeight artifacts_out/ios-simulator-onboarding.png
 
-          # Package Simulator .app bundle and generated iOS Xcode project
           ditto -c -k --sequesterRsrc --keepParent build/ios/iphonesimulator/Runner.app artifacts_out/MD-Free-People-iOS-Simulator.app.zip
           ditto -c -k --sequesterRsrc --keepParent ios artifacts_out/ios-xcode-project.zip
 
           xcrun simctl shutdown "$UDID" || true
 
-      - name: Upload iOS Simulator screenshot, .app bundle, and Xcode project artifacts
+      - name: Build signed Release IPA & upload to Apple TestFlight
+        if: ${{ secrets.IOS_DIST_P12_BASE64 != '' && secrets.ASC_KEY_ID != '' }}
+        env:
+          IOS_DIST_P12_BASE64: ${{ secrets.IOS_DIST_P12_BASE64 }}
+          IOS_DIST_P12_PASSWORD: ${{ secrets.IOS_DIST_P12_PASSWORD }}
+          IOS_PROVISION_PROFILE_BASE64: ${{ secrets.IOS_PROVISION_PROFILE_BASE64 }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_PRIVATE_KEY_BASE64: ${{ secrets.ASC_PRIVATE_KEY_BASE64 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          KEYCHAIN_PATH="$RUNNER_TEMP/app-signing.keychain-db"
+          KEYCHAIN_PASS="TempKeychainPass2026!"
+
+          security create-keychain -p "$KEYCHAIN_PASS" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASS" "$KEYCHAIN_PATH"
+
+          echo "$IOS_DIST_P12_BASE64" | base64 --decode > "$RUNNER_TEMP/dist.p12"
+          security import "$RUNNER_TEMP/dist.p12" -P "$IOS_DIST_P12_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASS" "$KEYCHAIN_PATH"
+          security list-keychains -d user -s "$KEYCHAIN_PATH" $(security list-keychains -d user | tr -d '"')
+          security find-identity -v -p codesigning "$KEYCHAIN_PATH"
+
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          echo "$IOS_PROVISION_PROFILE_BASE64" | base64 --decode > "$HOME/Library/MobileDevice/Provisioning Profiles/${PROFILE_UUID}.mobileprovision"
+
+          mkdir -p "$HOME/.appstoreconnect/private_keys"
+          echo "$ASC_PRIVATE_KEY_BASE64" | base64 --decode > "$HOME/.appstoreconnect/private_keys/AuthKey_${ASC_KEY_ID}.p8"
+
+          # Pre-build Flutter AOT release assets
+          flutter build ios --release --no-codesign --no-pub --build-number="${GITHUB_RUN_NUMBER}"
+
+          # Archive with explicit Apple Distribution manual signing for Runner
+          xcodebuild -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath "$RUNNER_TEMP/Runner.xcarchive" \
+            archive \
+            CODE_SIGN_STYLE=Manual \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+            CODE_SIGN_IDENTITY="Apple Distribution" \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" \
+            FLUTTER_BUILD_NUMBER="${GITHUB_RUN_NUMBER}"
+
+          cat > "$RUNNER_TEMP/ExportOptions.plist" << EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>method</key>
+              <string>app-store</string>
+              <key>teamID</key>
+              <string>${APPLE_TEAM_ID}</string>
+              <key>signingStyle</key>
+              <string>manual</string>
+              <key>signingCertificate</key>
+              <string>Apple Distribution</string>
+              <key>provisioningProfiles</key>
+              <dict>
+                  <key>${BUNDLE_ID}</key>
+                  <string>${PROFILE_NAME}</string>
+              </dict>
+              <key>uploadSymbols</key>
+              <true/>
+              <key>destination</key>
+              <string>export</string>
+          </dict>
+          </plist>
+          EOF
+
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/Runner.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/ipa_out"
+
+          cp "$RUNNER_TEMP"/ipa_out/*.ipa artifacts_out/MD-Free-People-1.0.3-TestFlight.ipa
+          ls -lh artifacts_out/MD-Free-People-1.0.3-TestFlight.ipa
+
+          echo "Uploading signed IPA to Apple TestFlight..."
+          xcrun altool --upload-app \
+            --type ios \
+            -f artifacts_out/MD-Free-People-1.0.3-TestFlight.ipa \
+            --apiKey "$ASC_KEY_ID" \
+            --apiIssuer "$ASC_ISSUER_ID"
+
+      - name: Upload iOS Simulator screenshot, signed .ipa, .app bundle, and Xcode project artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: mdfp-ios-simulator-${{ github.run_number }}
+          name: mdfp-ios-release-${{ github.run_number }}
           path: artifacts_out/*
           if-no-files-found: error
           retention-days: 30
