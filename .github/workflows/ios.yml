@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   ios-simulator-and-ipa:
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 60
     env:
       APPLE_TEAM_ID: "M76828BXT2"
@@ -287,6 +287,7 @@ jobs:
             --apiIssuer "$ASC_ISSUER_ID"
 
       - name: Upload iOS Simulator screenshot, signed .ipa, .app bundle, and Xcode project artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mdfp-ios-release-${{ github.run_number }}
